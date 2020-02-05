@@ -33,4 +33,22 @@ public class DealController
         return new ResponseEntity(deal, HttpStatus.OK);
     }
 
+    @DeleteMapping ("/deals/{id}")
+    public static ResponseEntity delete(@PathVariable int id)
+    {
+        Deal deal = Storage.getDeal(id);
+        if (deal == null)
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        Storage.deleteDeal(deal);
+        return new ResponseEntity(true, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deals/all")
+    public ResponseEntity clearList () {
+        Storage.deleteAllDeals();
+        return new ResponseEntity(true, HttpStatus.OK);
+
+    }
 }

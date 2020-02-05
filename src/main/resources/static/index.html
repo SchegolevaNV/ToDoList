@@ -8,6 +8,14 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+<div class="main">
+
+    <div>
+        <h1>Ежедневник</h1>
+        <center><button id="show-add-deal-form">Добавить запись</button> <button id="clear-deal-list">Очистить весь ежедневник</button></center>
+        <br><br>
+    </div>
+
     <div id="deal-form">
         <form>
             <h2>Добавление записи в ежедневник</h2>
@@ -19,12 +27,16 @@
             <button id="save-deal">Сохранить</button>
         </form>
     </div>
-    <h1>Еженедельник</h1>
-<!--    <h1>Библиотека (<span th:text="${booksCount}">0</span>)</h1>-->
-    <center><button id="show-add-deal-form">Добавить запись</button></center>
-    <br><br>
-    <div id="deal-list">
-        <h2>Список дел:</h2>
+
+    <div>
+        <list>
+            <h2>Список дел: <button id="hide-deal-list">Скрыть список</button> <button id="show-deal-list">Показать список</button></h2>
+        </list>
     </div>
+
+    <div class="list" id="deal-list">
+    </div>
+
+</div>
 </body>
 </html>

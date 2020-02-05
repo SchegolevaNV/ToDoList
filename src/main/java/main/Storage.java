@@ -38,4 +38,9 @@ public class Storage
     {
         deals.remove(deal.getId());
     }
+
+    public static void deleteAllDeals ()
+    {
+        deals.clear();
+    }
 }

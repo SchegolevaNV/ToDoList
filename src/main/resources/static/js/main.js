@@ -2,9 +2,12 @@ $(function(){
     const appendDeal = function(data){
         var dealCode = '<a href="#" class="deal-link" data-id="' +
             data.id + '">' + data.name + '</a>  ';
+        var dealRemoveImg =
+        '<img src="https://ru.wargaming.net/clans/media/clans/emblems/cl_555/205555/emblem_64x64.png" width="34px" class="delete-deal" data-id="'
+        + data.id + '">';
         $('#deal-list')
             .append('<div>' + dealCode
-            + '<img id="delete-deal" src="https://ru.wargaming.net/clans/media/clans/emblems/cl_555/205555/emblem_64x64.png" width="34px">'
+            + dealRemoveImg
             + '</div><br>');
     };
 
@@ -37,8 +40,9 @@ $(function(){
             url: '/deals/' + dealId,
             success: function(response)
             {
-                var code = '<br><br><span>Дата: ' + response.date + '</span><br><br>';
+                var code = '<br><span>Дата: ' + response.date + '</span><br>';
                 link.parent().append(code);
+                $(link).css('pointer-events', 'none');
             },
             error: function(response)
             {
@@ -66,6 +70,11 @@ $(function(){
                 var dataArray = $('#deal-form form').serializeArray();
                 for(i in dataArray) {
                     deal[dataArray[i]['name']] = dataArray[i]['value'];
+
+                    var inputElements = document.getElementsByTagName('input');
+                                    if (inputElements[i].type == 'text') {
+                                                inputElements[i].value = '';
+                                    }
                 }
                 appendDeal(deal);
             }
@@ -73,26 +82,56 @@ $(function(){
         return false;
     });
 
-        //Delete deal
-        $('#save-deal').click(function()
+        //Delete one deal
+        $(document).on('click', '.delete-deal', function()
         {
-            var data = $('#deal-form form').serialize();
+              var link = $(this);
+                    var dealId = link.data('id');
+                    $.ajax({
+                        method: "DELETE",
+                        url: '/deals/' + dealId,
+                        success: function(response)
+                        {
+                            alert("Дело № " + dealId +" удалено");
+                            link.parent().remove();
+                        },
+                        error: function(response)
+                        {
+                            if(response.status == 404) {
+                                alert('Такая задача не найдена!');
+                            }
+                        }
+                    });
+                    return false;
+        });
+
+        //Delete all deals
+        $('#clear-deal-list').click(function()
+        {
+            var data = $('#deal-list').serialize();
             $.ajax({
-                method: "POST",
-                url: '/deals/',
-                data: data,
-                success: function(response)
-                {
-                    $('#deal-form').css('display', 'none');
-                    var deal = {};
-                    deal.id = response;
-                    var dataArray = $('#deal-form form').serializeArray();
-                    for(i in dataArray) {
-                        deal[dataArray[i]['name']] = dataArray[i]['value'];
+                    method: "DELETE",
+                    url: '/deals/all',
+                    caches: false,
+                    success: function(response)
+                    {
+                       $('#deal-list').empty();
+                       alert('Все запланированные дела удалены');
+                    },
+                    error: function (response) {
+                        if(response.status !== 200) {
+                           alert('Внутренняя ошибка!');
+                        }
                     }
-                    appendDeal(deal);
-                }
             });
             return false;
         });
+
+    $('#hide-deal-list').click(function(){
+            $('.list').css('display', 'none');
+        });
+
+    $('#show-deal-list').click(function(){
+                $('.list').css('display', 'block');
+            });
 });

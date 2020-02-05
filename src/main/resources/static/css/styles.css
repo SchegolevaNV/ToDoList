@@ -1,6 +1,6 @@
 * {
     font-family: Arial;
-    background-color: #f2e8c9;
+    background-color: #90EE90;
 }
 
 #deal-form {
@@ -44,6 +44,7 @@ h1 {
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #90EE90
 }
 
 button {
@@ -58,7 +59,7 @@ button {
 
 label {
     width:600px;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 10px;
 }
 
@@ -69,12 +70,31 @@ input {
 }
 
 A {
-    font-size: 30px;
+    font-size: 20px;
     color: green;
     background-color: #FFE4B5;
     text-decoration: none;
+    pointer-events: auto;
 }
 
 span {
-    font-size: 20px;
+    font-size: 16px;
+}
+
+.list {
+    display: block;
+    background-color: #f2e8c9;
+    position: fixed;
+    height: 100%;
+    width: 95%;
+}
+
+.main {
+    background-color: #90EE90;
+}
+
+div {
+    background-color: #f2e8c9;
+    margin-left: 20px;
+    margin-right: 20px;
 }
