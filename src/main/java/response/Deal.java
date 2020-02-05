@@ -1,10 +1,10 @@
 package response;
 
-public class Book
+public class Deal
 {
     private int id;
     private String name;
-    private int year;
+    private String date;
 
     public int getId() {
         return id;
@@ -14,8 +14,8 @@ public class Book
         return name;
     }
 
-    public int getYear() {
-        return year;
+    public String getDate() {
+        return date;
     }
 
     public void setId(int id) {
@@ -26,7 +26,7 @@ public class Book
         this.name = name;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(String date) {
+        this.date = date;
     }
 }

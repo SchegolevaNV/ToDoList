@@ -3,34 +3,34 @@ package main;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import response.Book;
+import response.Deal;
 
 import java.util.List;
 
 @RestController
-public class BookController
+public class DealController
 {
-    @GetMapping("/books/")
-    public List<Book> list()
+    @GetMapping("/deals/")
+    public List<Deal> list()
     {
-        return Storage.getAllBooks();
+        return Storage.getAllDeals();
     }
 
-    @PostMapping("/books/")
-    public int add (Book book)
+    @PostMapping("/deals/")
+    public int add (Deal deal)
     {
-        return Storage.addBook(book);
+        return Storage.addDeal(deal);
     }
 
-    @GetMapping("/books/{id}")
+    @GetMapping("/deals/{id}")
     public static ResponseEntity get(@PathVariable int id)
     {
-        Book book = Storage.getBook(id);
-        if (book == null)
+        Deal deal = Storage.getDeal(id);
+        if (deal == null)
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        return new ResponseEntity(book, HttpStatus.OK);
+        return new ResponseEntity(deal, HttpStatus.OK);
     }
 
 }

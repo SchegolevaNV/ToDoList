@@ -8,26 +8,23 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <div id="book-form">
+    <div id="deal-form">
         <form>
             <h2>Добавление записи в ежедневник</h2>
-            <label>Название дела:</label>
+            <label>Что нужно сделать:</label>
             <input type="text" name="name" value="">
             <label>Дата:</label>
-            <input type="text" name="year" value="">
+            <input type="text" name="date" value="">
             <hr>
-            <button id="save-book">Сохранить</button>
+            <button id="save-deal">Сохранить</button>
         </form>
     </div>
-    <h1>Библиотека</h1>
+    <h1>Еженедельник</h1>
 <!--    <h1>Библиотека (<span th:text="${booksCount}">0</span>)</h1>-->
-    <button id="show-add-book-form">Добавить книгу</button>
+    <center><button id="show-add-deal-form">Добавить запись</button></center>
     <br><br>
-    <div id="book-list">
-<!--        <div th:each="book : ${books}">-->
-<!--            <a href="#" class="book-link" th:attr="data-id=${book.id}" th:text="${book.name}"></a>-->
-<!--        </div>-->
+    <div id="deal-list">
+        <h2>Список дел:</h2>
     </div>
-<!--    <p th:text="${someParameter}"></p>-->
 </body>
 </html>

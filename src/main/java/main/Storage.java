@@ -1,6 +1,6 @@
 package main;
 
-import response.Book;
+import response.Deal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,29 +8,34 @@ import java.util.List;
 public class Storage
 {
     private static int currentId = 1;
-    private static HashMap<Integer, Book> books = new HashMap<>();
+    private static HashMap<Integer, Deal> deals = new HashMap<>();
 
-    public static List<Book> getAllBooks()
+    public static List<Deal> getAllDeals()
     {
-        ArrayList<Book> booksList = new ArrayList<>();
-        booksList.addAll(books.values());
-        return booksList;
+        ArrayList<Deal> dealsList = new ArrayList<>();
+        dealsList.addAll(deals.values());
+        return dealsList;
     }
 
-    public static int addBook (Book book)
+    public static int addDeal (Deal deal)
     {
         int id = currentId++;
-        book.setId(id);
-        books.put(id, book);
+        deal.setId(id);
+        deals.put(id, deal);
         return id;
     }
 
-    public static Book getBook (int bookId)
+    public static Deal getDeal (int dealId)
     {
-        if (books.containsKey(bookId))
+        if (deals.containsKey(dealId))
         {
-            return books.get(bookId);
+            return deals.get(dealId);
         }
         return null;
+    }
+
+    public static void deleteDeal (Deal deal)
+    {
+        deals.remove(deal.getId());
     }
 }

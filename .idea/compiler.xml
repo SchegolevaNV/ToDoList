@@ -9,10 +9,8 @@
         <module name="ToDoList" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ToDoList" options="" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="ToDoList" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

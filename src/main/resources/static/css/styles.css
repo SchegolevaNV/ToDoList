@@ -1,8 +1,9 @@
 * {
     font-family: Arial;
+    background-color: #f2e8c9;
 }
 
-#book-form {
+#deal-form {
     display: none;
     align-items: center;
     justify-content: center;
@@ -15,22 +16,22 @@
     background-color: #88888878;
 }
 
-#book-form form {
+#deal-form form {
     background-color: white;
     border: 1px solid #333;
-    width: 300px;
+    width: 600px;
     padding: 20px;
 }
 
-#book-form h2 {
+#deal-form h2 {
     margin-top: 0;
 }
 
-#book-form label {
+#deal-form label {
     display: block;
 }
 
-#book-form form > * {
+#deal-form form > * {
     margin-bottom: 5px;
 }
 
@@ -43,4 +44,37 @@ h1 {
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: 2px;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    padding: 6px;
+}
+
+label {
+    width:600px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+input {
+    width:598px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+A {
+    font-size: 30px;
+    color: green;
+    background-color: #FFE4B5;
+    text-decoration: none;
+}
+
+span {
+    font-size: 20px;
 }
