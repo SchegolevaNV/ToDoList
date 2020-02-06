@@ -8,8 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-<div class="main">
-
     <div>
         <h1>Ежедневник</h1>
         <center><button id="show-add-deal-form">Добавить запись</button> <button id="clear-deal-list">Очистить весь ежедневник</button></center>
@@ -19,12 +17,24 @@
     <div id="deal-form">
         <form>
             <h2>Добавление записи в ежедневник</h2>
-            <label>Что нужно сделать:</label>
+            <label>Название дела:</label>
             <input type="text" name="name" value="">
             <label>Дата:</label>
             <input type="text" name="date" value="">
             <hr>
             <button id="save-deal">Сохранить</button>
+        </form>
+    </div>
+
+    <div id="deal-change-form">
+        <form>
+            <h2>Изменение записи в ежедневнике</h2>
+            <label>Название дела:</label>
+            <input type="text" name="name" value="">
+            <label>Дата:</label>
+            <input type="text" name="date" value="">
+            <hr>
+            <button id="change-deal">Сохранить изменения</button>
         </form>
     </div>
 
@@ -34,9 +44,7 @@
         </list>
     </div>
 
-    <div class="list" id="deal-list">
-    </div>
+    <div class="list" id="deal-list"></div>
 
-</div>
 </body>
 </html>

@@ -34,13 +34,21 @@ public class Storage
         return null;
     }
 
-    public static void deleteDeal (Deal deal)
+    public static void deleteDeal (int dealId)
     {
-        deals.remove(deal.getId());
+        deals.remove(dealId);
     }
 
     public static void deleteAllDeals ()
     {
         deals.clear();
+    }
+
+    public static Deal changeDeal(int dealId, String name, String date)
+    {
+        Deal deal = deals.get(dealId);
+        deal.setDate(date);
+        deal.setName(name);
+        return deal;
     }
 }

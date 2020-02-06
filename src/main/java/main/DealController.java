@@ -41,7 +41,7 @@ public class DealController
         {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        Storage.deleteDeal(deal);
+        Storage.deleteDeal(id);
         return new ResponseEntity(true, HttpStatus.OK);
     }
 
@@ -50,5 +50,17 @@ public class DealController
         Storage.deleteAllDeals();
         return new ResponseEntity(true, HttpStatus.OK);
 
+    }
+
+    @PutMapping ("/deals/{id}")
+    public ResponseEntity changeDeal(@PathVariable int id, String name, String date)
+    {
+        Deal deal = Storage.getDeal(id);
+        if (deal == null)
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        Storage.changeDeal(id, name, date);
+        return new ResponseEntity(deal, HttpStatus.OK);
     }
 }
