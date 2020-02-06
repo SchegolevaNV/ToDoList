@@ -2,13 +2,13 @@ package main;
 
 import response.Deal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Storage
 {
     private static int currentId = 1;
-    private static HashMap<Integer, Deal> deals = new HashMap<>();
+    private static ConcurrentHashMap<Integer, Deal> deals = new ConcurrentHashMap<>();
 
     public static List<Deal> getAllDeals()
     {
