@@ -1,6 +1,6 @@
 package main;
 
-import response.Deal;
+import main.model.Deal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
