@@ -13,12 +13,12 @@ $(function(){
     };
 
   //  Loading books on load page
-    $.get('/deals/', function(response)
-    {
-        for(i in response) {
-            appendDeal(response[i]);
-        }
-    });
+//    $.get('/deals/', function(response)
+//    {
+//        for(i in response) {
+//            appendDeal(response[i]);
+//        }
+//    });
 
     //Show adding deal form
     $('#show-add-deal-form').click(function(){
