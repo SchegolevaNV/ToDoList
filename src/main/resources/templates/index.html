@@ -38,7 +38,7 @@
     </list>
 </div>
 
-<div id="deal-list">
+<div class="list" id="deal-list">
     <div th:each="deal : ${deals}">
         <a href="#" class="deal-link" th:attr="data-id=${deal.id}" th:text="${deal.name}"></a>
         <img src="https://ru.wargaming.net/clans/media/clans/emblems/cl_555/205555/emblem_64x64.png" width="34px" th:attr="data-id=${deal.id}" class="delete-deal">
