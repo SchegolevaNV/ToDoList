@@ -33,11 +33,11 @@ public class DealController
     {
         Deal newDeal = dealRepository.save(deal);
         return newDeal.getId();
+
     }
 
     @GetMapping("/deals/{id}")
-    public ResponseEntity get(@PathVariable int id)
-    {
+    public ResponseEntity get(@PathVariable int id) {
         Optional<Deal> dealOptional = dealRepository.findById(id);
         if (!dealOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
